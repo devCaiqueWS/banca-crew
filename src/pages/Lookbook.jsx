@@ -1,5 +1,6 @@
 import React from 'react';
 import './style/Lookbook.css';
+import { Helmet } from 'react-helmet';
 
 const Lookbook = () => {
   const lookbookItems = [
@@ -15,15 +16,20 @@ const Lookbook = () => {
   ];
 
   return (
-    <div className="lookbook">
-      <div className="lookbook-grid">
-        {lookbookItems.map((item) => (
-          <div key={item.id} className={`lookbook-item ${item.size}`}>
-            <img src={item.image} alt={`Look ${item.id}`} />
-          </div>
-        ))}
+    <>
+      <Helmet>
+        <title>BANCA | Lookbook</title>
+      </Helmet>
+      <div className="lookbook">
+        <div className="lookbook-grid">
+          {lookbookItems.map((item) => (
+            <div key={item.id} className={`lookbook-item ${item.size}`}>
+              <img src={item.image} alt={`Look ${item.id}`} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

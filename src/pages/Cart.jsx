@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style/Cart.css';
+import { Helmet } from 'react-helmet';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([
@@ -12,24 +13,29 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart">
-      <h2>Carrinho de Compras</h2>
-      <div className="cart-items">
-        {cartItems.map((item) => (
-          <div className="cart-item" key={item.id}>
-            <h3>{item.name}</h3>
-            <p>{item.price}</p>
-            <button 
-              onClick={() => removeItem(item.id)}
-              className="remove-button"
-            >
-              Remover
-            </button>
-          </div>
-        ))}
+    <>
+      <Helmet>
+        <title>BANCA | Carrinho</title>
+      </Helmet>
+      <div className="cart">
+        <h2>Carrinho de Compras</h2>
+        <div className="cart-items">
+          {cartItems.map((item) => (
+            <div className="cart-item" key={item.id}>
+              <h3>{item.name}</h3>
+              <p>{item.price}</p>
+              <button 
+                onClick={() => removeItem(item.id)}
+                className="remove-button"
+              >
+                Remover
+              </button>
+            </div>
+          ))}
+        </div>
+        <button>Finalizar Compra</button>
       </div>
-      <button>Finalizar Compra</button>
-    </div>
+    </>
   );
 };
 

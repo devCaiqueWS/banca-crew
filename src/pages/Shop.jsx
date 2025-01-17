@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style/Shop.css';
+import { Helmet } from 'react-helmet';
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState('todos');
@@ -33,38 +34,43 @@ const Shop = () => {
     : products.filter(product => product.category === selectedCategory);
 
   return (
-    <div className="shop-container">
-      <aside className="sidebar">
-        <h3>Categorias</h3>
-        <ul className="category-list">
-          {categories.map((category) => (
-            <li 
-              key={category.id}
-              className={`category-item ${selectedCategory === category.id ? 'active' : ''}`}
-              onClick={() => setSelectedCategory(category.id)}
-            >
-              {category.name}
-            </li>
-          ))}
-        </ul>
-      </aside>
+    <>
+      <Helmet>
+        <title>BANCA | Coleção</title>
+      </Helmet>
+      <div className="shop-container">
+        <aside className="sidebar">
+          <h3>Categorias</h3>
+          <ul className="category-list">
+            {categories.map((category) => (
+              <li 
+                key={category.id}
+                className={`category-item ${selectedCategory === category.id ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(category.id)}
+              >
+                {category.name}
+              </li>
+            ))}
+          </ul>
+        </aside>
 
-      <main className="shop-content">
-        <h2>Loja</h2>
-        <div className="shop-items">
-          {filteredProducts.map((product) => (
-            <div className="shop-item" key={product.id}>
-              <div className="product-image">
-                <img src={`/images/products/${product.category}/${product.id}.jpg`} alt={product.name} />
+        <main className="shop-content">
+          <h2>Loja</h2>
+          <div className="shop-items">
+            {filteredProducts.map((product) => (
+              <div className="shop-item" key={product.id}>
+                <div className="product-image">
+                  <img src={`/images/products/${product.category}/${product.id}.jpg`} alt={product.name} />
+                </div>
+                <h3>{product.name}</h3>
+                <p className="price">{product.price}</p>
+                <button className="add-to-cart">Adicionar ao Carrinho</button>
               </div>
-              <h3>{product.name}</h3>
-              <p className="price">{product.price}</p>
-              <button className="add-to-cart">Adicionar ao Carrinho</button>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+            ))}
+          </div>
+        </main>
+      </div>
+    </>
   );
 };
 
