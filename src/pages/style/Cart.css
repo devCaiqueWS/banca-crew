@@ -1,0 +1,21 @@
+.remove-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.remove-button:hover {
+  background-color: #cc0000;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}

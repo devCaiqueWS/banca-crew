@@ -1,0 +1,100 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    z-index: 1000;
+    margin-bottom: 100px;
+    height: 100px;
+}
+  
+  .navbar-links {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  .navbar-links li {
+    margin-left: 20px;
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+    padding-bottom: 5px;
+  }
+  
+  .navbar-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00ffff;
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-links a:hover::after {
+    width: 100%;
+  }
+  
+  /* Para o link ativo/selecionado */
+  .navbar-links a.active::after {
+    width: 100%;
+    background-color: #00ffff;
+  }
+  
+  /* Removendo o hover antigo */
+  nav a:hover {
+    color: #00ffff;
+  }
+  
+  .cart-icon {
+    position: relative;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-icon svg {
+    margin-top: 3px;
+  }
+  
+  .cart-icon::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00ffff;
+    transition: width 0.3s ease;
+  }
+  
+  .cart-icon:hover::after {
+    width: 100%;
+  }
+  
+  .cart-icon.active::after {
+    width: 100%;
+    background-color: #00ffff;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .navbar-logo img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+  
